@@ -7,11 +7,6 @@ async function apiCall () {
 
     try {
 
-   
-
-
-    
-
         const response = await fetch(url);
 
         const data = await response.json();
@@ -28,7 +23,7 @@ async function apiCall () {
                 break
             }
 
-            container.innerHTML += `<div class="container">  Name:${array[i].volumeInfo.title}  Release date:${array[i].volumeInfo.publishedDate}  Pagecount:${array[i].volumeInfo.pageCount} <div> `;
+            container.innerHTML += `<a href="details.html?id=${array[i].id}" class="card"> <div class="container">  Name:${array[i].volumeInfo.title}  Release date:${array[i].volumeInfo.publishedDate}  Pagecount:${array[i].volumeInfo.pageCount} <div> </a> `;
         }
  }      catch (error) {
      console.log("error");
