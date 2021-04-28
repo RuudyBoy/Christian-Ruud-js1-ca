@@ -1,7 +1,6 @@
 
 const container = document.querySelector(".container");
-const url = "https://www.easports.com/fifa/ultimate-team/api/fut/item";
-const corsUrl = "https://noroffcors.herokuapp.com/" + url;
+const url = "https://www.balldontlie.io/api/v1/players";
 
  container.innerHTML = "";
 
@@ -12,10 +11,8 @@ const corsUrl = "https://noroffcors.herokuapp.com/" + url;
     const result = await fetch(corsUrl)
   
     const data = await result.json();
-
-    const hoy = data.items;
-
-    console.log(hoy);
+    
+    console.log(data);
 
     
     for (let i = 0; i < hoy.length; i++) {
