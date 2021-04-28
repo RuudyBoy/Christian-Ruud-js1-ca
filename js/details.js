@@ -1,34 +1,38 @@
-const detailsContainer = document.querySelector(".details-container");
+
 
 const queryString = document.location.search;
+
+console.log(queryString);
 
 const params = new URLSearchParams(queryString);
 
 const id = params.get("id");
 
-if (id === null) {
-    location.href = "/";
-}
-
 console.log(id);
 
-const url = "https://www.googleapis.com/books/v1/volumes?q=isbn:0747532699" + id;
+
+const detailsContainer = document.querySelector(".details-container");
 
 const idContainer = document.querySelector(".id");
-
-
 idContainer.innerHTML = id;
 
+const url = "https://free-nba.p.rapidapi.com/players?page=0&per_page=25" + id;
 
-async function fetchBook () {
+const apiKey =  {"headers": {
+    "x-rapidapi-key": "623b2d79a6msh38ce6bc44c7bb1ap1aaf80jsn6fca4a0052bc",
+    "x-rapidapi-host": "free-nba.p.rapidapi.com"
+}};
+
+async function gameStats () {
     try {
 
-        const response = await fetch(url);
+        const response = await fetch(url, apiKey);
         const details = await response.json();
 
         console.log(details);
 
         createHTML(details);
+
 
     }
     
@@ -38,8 +42,14 @@ async function fetchBook () {
  }
 }
 
-fetchBook ();
+gameStats ();
 
-function createHTML (details) {
-    detailsContainer.innerHTML = `<h1> ${details.title} </h1>`;
+function createHTML(details){
+
+
+
 }
+
+
+
+
