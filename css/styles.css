@@ -26,10 +26,19 @@
   }
 }
 
-.form-error {
-  display: none;
+label {
+  padding: 10px;
+  display: grid;
+  margin-top: 5px;
+  margin: 5px 20px;
 }
 
-label {
-  display: block;
+form {
+  text-align: center;
+}
+
+.error {
+  display: none;
+  color: red;
+  padding: 5px;
 }
