@@ -6,9 +6,7 @@ const params = new URLSearchParams(queryString);
 const id = params.get("id");
 
 
-const url = "https://www.easports.com/fifa/ultimate-team/api/fut/item/" + id;
-const corsUrl = "https://noroffcors.herokuapp.com/" + url;
-
+const url = "https://www.balldontlie.io/api/v1/players/" + id;
 
 const detailsContainer = document.querySelector(".details-container");
 const idContainer = document.querySelector(".id");
@@ -21,7 +19,7 @@ detailsContainer.innerHTML = "";
 async function fetchBook () {
     try {
 
-        const response = await fetch(corsUrl);
+        const response = await fetch(url);
         const details = await response.json();
 
         console.log(details);
@@ -43,7 +41,7 @@ function createHTML (details) {
 
     document.title = `${details.type}`;
 
-    detailsContainer.innerHTML = `<div class="details_container"> ${details.type} ${details.count} ${details.totalResults}  </div>` ;
+    detailsContainer.innerHTML = `<div class="details_container"> Full name: ${details.first_name} ${details.last_name} Weight:${details.weight_pounds}  </div>` ;
     
 }
 

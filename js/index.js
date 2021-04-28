@@ -8,9 +8,11 @@ const url = "https://www.balldontlie.io/api/v1/players";
 
     try {
     
-    const result = await fetch(corsUrl)
+    const result = await fetch(url)
   
     const data = await result.json();
+
+    const hoy = data.data;
     
     console.log(data);
 
