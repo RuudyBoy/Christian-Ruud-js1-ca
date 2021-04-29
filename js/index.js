@@ -10,21 +10,22 @@ const url = "https://www.balldontlie.io/api/v1/players";
     
     const result = await fetch(url)
   
-    const data = await result.json();
+    const response = await result.json();
 
-    const hoy = data.data;
+    const stats = response.data;
     
     console.log(data);
+   
 
     
-    for (let i = 0; i < hoy.length; i++) {
+    for (let i = 0; i < stats.length; i++) {
 
       if (i === 15) {
         break
       }
 
 
-    container.innerHTML += `<a class="card" href="details.html?id=${i}">${i} </a> `;
+    container.innerHTML += `<a class="card" href="details.html?id=${i}"> <div class="teams"> ${stats[i].team.full_name} (${stats[i].team.abbreviation}),${stats[i].team.conference} ${stats[i].team.division} </div> </a> `;
  }
 
   } catch (error) {

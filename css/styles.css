@@ -1,12 +1,18 @@
-.container {
-  font-size: larger;
+.container,
+h1 {
+  text-align: center;
 }
 
-.card {
-  color: black;
-  text-decoration: none;
-  padding: 5px;
+.teams {
+  font-size: large;
 }
+
+.details-container,
+.player-stats {
+  text-align: center;
+  padding: 10px;
+}
+
 .loader {
   border: 10px solid gray;
   border-top: 10px solid black;

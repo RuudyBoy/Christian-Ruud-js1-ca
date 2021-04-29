@@ -39,9 +39,9 @@ fetchBook ();
 
 function createHTML (details) {
 
-    document.title = `${details.type}`;
+    document.title = `${details.first_name} ${details.last_name} `;
 
-    detailsContainer.innerHTML = `<div class="details_container"> Full name: ${details.first_name} ${details.last_name} Weight:${details.weight_pounds}  </div>` ;
+    detailsContainer.innerHTML = `<div class="details_container"> Full name: ${details.first_name} ${details.last_name} Position: ${details.position} Height:${details.height_feet} ${details.height_inches} Weight:${details.weight_pounds}  </div>` ;
     
 }
 
