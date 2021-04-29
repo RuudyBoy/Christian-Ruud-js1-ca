@@ -1,4 +1,4 @@
-const form = document.querySelector("form");
+const form = document.querySelector("#contactForm");
 
 const fullName = document.querySelector("#fullName");
 const fullNameError = document.querySelector("#fullNameError");
@@ -12,14 +12,11 @@ const emailError = document.querySelector("#emailError");
 const address = document.querySelector("#address");
 const addressError = document.querySelector("#addressError");
 
-
-
-
-form.onsubmit = function (event) {
+function forms(event) {
+    
     event.preventDefault();
 
-
-    if (checkLength(fullName.value, 0)) {
+    if (fullName.value.trim().length > 4) {
         fullNameError.style.display = "none";
         
     } else {
@@ -27,43 +24,31 @@ form.onsubmit = function (event) {
       
     }
 
-    if (checkLength(subject.value, 10)) {
+    if (subject.value.trim().length > 4) {
         subjectError.style.display = "none";
        
-
     } else {
         subjectError.style.display ="block";
-        
-        
     }
 
     if (emailForm(email.value)) {
         emailError.style.display = "none"
        
-
     } else {
         emailError.style.display = "block";
        
     }
 
-    if (checkLength(address.value, 25)) {
+    if (address.value.trim().length > 4) {
         addressError.style.display = "none"
       
-
     } else {
         addressError.style.display = "block"
     }
 }
 
-function checkLength(value, len) {
 
-    if (value.trim().lenght > len)  {
-        return true;
-    } else {
-        return false;
-    }
-    
-}
+form.addEventListener("submit", forms);
 
 function emailForm(email) {
     const regEx = /\S+@\S+\.\S+/;
