@@ -1,8 +1,9 @@
 
 const container = document.querySelector(".container");
+const loader = document.querySelector(".loader");
 const url = "https://www.balldontlie.io/api/v1/players";
 
- container.innerHTML = "";
+container.innerHTML = "";
 
   async function apiCall () {
 
@@ -10,15 +11,15 @@ const url = "https://www.balldontlie.io/api/v1/players";
     
     const result = await fetch(url)
   
-    const response = await result.json();
+    const data = await result.json();
 
-    const stats = response.data;
+    const stats = data.data;
     
     console.log(data);
-   
+
 
     
-    for (let i = 0; i < stats.length; i++) {
+    for (let i = 1; i < stats.length; i++) {
 
       if (i === 15) {
         break
