@@ -1,9 +1,9 @@
 
-const container = document.querySelector(".container");
+const results = document.querySelector(".results");
 const loader = document.querySelector(".loader");
 const url = "https://www.balldontlie.io/api/v1/players";
 
-container.innerHTML = "";
+results.innerHTML = "";
 
   async function apiCall () {
 
@@ -24,14 +24,16 @@ container.innerHTML = "";
       if (i === 15) {
         break
       }
+      
 
 
-    container.innerHTML += `<a class="card" href="details.html?id=${i}"> <div class="teams"> ${stats[i].team.full_name} (${stats[i].team.abbreviation}),${stats[i].team.conference} ${stats[i].team.division} </div> </a> `;
+    results.innerHTML += `<a class="card" href="details.html?id=${i}"> <div class="teams"> ${stats[i].team.full_name} (${stats[i].team.abbreviation}),${stats[i].team.conference} ${stats[i].team.division} </div> </a> `;
  }
 
   } catch (error) {
-    
     console.log("error");
+    results.innerHTML = "An error has occured";
+   
 
     }
 
